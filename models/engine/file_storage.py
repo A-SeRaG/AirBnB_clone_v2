@@ -55,6 +55,7 @@ class FileStorage:
                         self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
+<<<<<<< HEAD
         except json.decoder.JSONDecodeError:
             pass
 
@@ -69,3 +70,12 @@ class FileStorage:
             pass
         except KeyboardInterrupt:
             pass
+=======
+
+
+    def delete(self, obj=None):
+    try:
+        del self.__objects["{}.{}".format((type(obj).__name__, obj.id))]
+    except (AttributeError, KeyError):
+        pass
+>>>>>>> 3e911bab7eb83cf7fc77cb2b523abf95fb5b75b2
